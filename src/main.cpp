@@ -43,19 +43,19 @@ int main(int argc, char** argv) {
     uint nsorted_segs = 0, npasses = 0, nios = 0, nres = 0, nunique = 0;
 
     MergeSort(infile1, 1, buffer, nmem_blocks, outfile, &nsorted_segs, &npasses, &nios);
-    printf("nios = %d, npasses = %d, nsorted_segs = %d\n", nios, npasses, nsorted_segs);
+    printf("MergeSort nios = %d, npasses = %d, nsorted_segs = %d\n", nios, npasses, nsorted_segs);
     //printFile(outfile);
 
     HashJoin(infile1, infile2, 2, buffer, nmem_blocks, outfile, &nres, &nios);
-    printf("nios = %d, nres = %d\n", nios, nres);
+    printf("HashJoin nios = %d, nres = %d\n", nios, nres);
     //printFile(outfile);
 
     EliminateDuplicates(infile1, 3, buffer, nmem_blocks, outfile, &nunique, &nios);
-    printf("nios = %d, nunique = %d\n", nios, nunique);
+    printf("EliminateDuplicates nios = %d, nunique = %d\n", nios, nunique);
     //printFile(outfile);
 
     MergeJoin(infile1, infile2, 0, buffer, nmem_blocks, outfile, &nres, &nios);
-    printf("nios = %d, nres = %d\n", nios, nres);
+    printf("MergeJoin nios = %d, nres = %d\n", nios, nres);
     //printFile(outfile);
 
     return 0;
